@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Task;
 use Illuminate\Http\Request;
+use App\Http\Requests\TaskRequest;
 
 class TaskController extends Controller
 {
@@ -13,12 +14,12 @@ class TaskController extends Controller
         return view('index', ['tasks' => $tasks]);
     }
 
-    public function create(Request $request)
+    public function store(TaskRequest $request)
     {
         $task = new Task;
         $form = $request->all();
         unset($form['_token']);
         $task->fill($form)->save();
-        return redirect('/');
+        return redirect('/tasks');
     }
 }

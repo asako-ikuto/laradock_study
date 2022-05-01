@@ -39,7 +39,7 @@
     <form method="POST">
         @csrf
         <input type="text" name="content">
-        <input type="hidden" name="status" value="作業中">
+        <input type="hidden" name="status" value="1">
         <input type="submit" value="追加">
     </form>
 </body>
