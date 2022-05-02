@@ -22,4 +22,11 @@ class TaskController extends Controller
         $task->fill($form)->save();
         return redirect('/tasks');
     }
+
+    public function destroy($id)
+    {
+        $task = Task::find($id);
+        $task->delete();
+        return redirect('/tasks');
+    }
 }
