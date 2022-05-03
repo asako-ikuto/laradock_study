@@ -11,4 +11,4 @@
 |
 */
 
-Route::resource('tasks', 'TaskController', ['only' => ['index', 'store']]);
+Route::resource('tasks', 'TaskController', ['only' => ['index', 'store', 'destroy']]);

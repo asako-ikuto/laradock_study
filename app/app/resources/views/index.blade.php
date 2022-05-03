@@ -12,7 +12,13 @@
                             完了
                         @endif
                     </button></td>
-                <td><button type="button">削除</button></td>
+                <td>
+                    <form method="post" action="{{ route('tasks.destroy', $task->id) }}">
+                        @csrf
+                        @method('delete')
+                        <input type="submit" value="削除">
+                    </form>
+                </td>
             </tr>
         @endforeach
     @endif
