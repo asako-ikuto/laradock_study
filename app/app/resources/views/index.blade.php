@@ -10,6 +10,7 @@
                         @csrf
                         @method('put')
                         <input type="hidden" name="status" value="{{ $task->status }}">
+                        <input type="hidden" name="content" value="{{ $task->content }}">
                         <input type="submit"
                             value=@if ($task->status === 1) "作業中"
                                   @elseif($task->status === 2) "完了" @endif>

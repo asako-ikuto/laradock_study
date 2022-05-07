@@ -30,7 +30,7 @@ class TaskController extends Controller
         return redirect('/tasks');
     }
 
-    public function update(Request $request, $id)
+    public function update(TaskRequest $request, $id)
     {
         $task = Task::find($id);
         if ($request->status == 1) {
