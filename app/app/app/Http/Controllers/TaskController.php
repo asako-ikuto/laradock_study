@@ -8,10 +8,25 @@ use App\Http\Requests\TaskRequest;
 
 class TaskController extends Controller
 {
-    public function index(Request $request)
+    public function index($status = 'all')
     {
         $tasks = Task::all();
-        return view('index', ['tasks' => $tasks]);
+        $allTasks = collect($tasks)->map(function ($task, $key) {
+            $task['task_id'] = $key;
+            return $task;
+        });
+        $workingTasks = $allTasks->where('status', 1);
+        $finishedTasks = $allTasks->where('status', 2);
+
+        if ($status == 'all') {
+            $taskLists = $allTasks;
+        } else if ($status == 'working') {
+            $taskLists = $workingTasks;
+        } else if ($status == 'finished') {
+            $taskLists = $finishedTasks;
+        }
+
+        return view('index', ['tasks' => $taskLists, 'filterStatus' => $status]);
     }
 
     public function store(TaskRequest $request)

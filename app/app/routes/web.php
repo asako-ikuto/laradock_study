@@ -12,3 +12,4 @@
 */
 
 Route::resource('tasks', 'TaskController', ['only' => ['index', 'store', 'destroy', 'update']]);
+Route::get('tasks/{status}', 'TaskController@index');

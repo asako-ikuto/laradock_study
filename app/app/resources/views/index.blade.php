@@ -1,9 +1,9 @@
 @extends('layouts.tasklistapp')
 @section('tasklist')
     @if (isset($tasks))
-        @foreach ($tasks as $key => $task)
+        @foreach ($tasks as $task)
             <tr>
-                <td>{{ $key }}</td>
+                <td>{{ $task->task_id }}</td>
                 <td>{{ $task->content }}</td>
                 <td>
                     <form method="post" action="{{ route('tasks.update', $task->id) }}">
