@@ -40,7 +40,7 @@
         <input type="submit" value="追加">
     </form>
 
-    <script>
+    {{-- <script>
         'use strict';
         const filterStatus = document.getElementsByName('filter-status');
 
@@ -55,7 +55,9 @@
                 }
             });
         });
-    </script>
+    </script> --}}
+    <script src="{{ asset('/js/main.js') }}"></script>
+
 </body>
 
 </html>
